@@ -1,7 +1,7 @@
 # Certex-Hosp
 Bem vindo ao CertEX!
     
-![logo-red](./assets/icon/logo-red.png"logo-red").
+![logo-red](./tree/main/assets/icon/logo-red.png"logo-red").
 
 ### ≫ Tabela de Conteúdos
 <!--ts-->
