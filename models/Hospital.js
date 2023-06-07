@@ -4,6 +4,6 @@ const Hospital = mongoose.model('Hospital', {
     CNPJ: Number,
     ENDERECO: String,
     CONTATO: Number,
-});
+},'hospital');
 
 module.exports = Hospital;

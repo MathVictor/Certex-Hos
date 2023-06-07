@@ -5,6 +5,6 @@ const Setor = mongoose.model('Setor', {
     CPF_RESPONSAVEL: Number,
     LOGIN: String,
     SENHA: String,
-});
+},'setor');
 
 module.exports = Setor;

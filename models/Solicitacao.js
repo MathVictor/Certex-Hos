@@ -5,6 +5,6 @@ const Solicitacao = mongoose.model('Solicitacao', {
     idEXTINTOR: String,
     DESCRICAO: String,
     STATUS: Number,
-});
+},'solicitacao');
 
 module.exports = Solicitacao;

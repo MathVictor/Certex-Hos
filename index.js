@@ -21,15 +21,15 @@ mongoose
     })
     .catch((err) => console.log(err));
     
-const extintoresRoutes   = require('./routes/extintorRoutes');
-const HospitaisRoutes    = require('./routes/hospitalRoutes');
-const SetoresRoutes      = require('./routes/setorRoutes');
-const SolicitacoesRoutes = require('./routes/solicitacaoRoutes');
+const extintorRoutes    = require('./routes/extintorRoutes');
+const hospitalRoutes    = require('./routes/hospitalRoutes');
+const setorRoutes       = require('./routes/setorRoutes');
+const solicitacaoRoutes = require('./routes/solicitacaoRoutes');
 
-app.use('/extintores',   extintoresRoutes);
-app.use('/hospitais',    extintoresRoutes);
-app.use('/setores',      extintoresRoutes);
-app.use('/solicitacoes', extintoresRoutes);
+app.use('/extintor',    extintorRoutes);
+app.use('/hospital',    hospitalRoutes);
+app.use('/setor',       setorRoutes);
+app.use('/solicitacao', solicitacaoRoutes);
 
 app.get('/', (req, res) => {
     console.log("logged to server.");

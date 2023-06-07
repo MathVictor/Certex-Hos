@@ -5,6 +5,6 @@ const Extintor = mongoose.model('Extintor', {
     CAPACIDADE: Number,
     PROX_MANUTENCAO: Date,
     ULTIMA_MANUTENCAO: Date,
-});
+},'extintor');
 
 module.exports = Extintor;
