@@ -2,45 +2,36 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 
+app.use(
+    express.urlencoded({
+        extended: true,
+    }),
+);
+app.use(express.json());
+
 require('dotenv').config()
 
-const Hospitais = require('./models/Hospitais');
-const Extintores = require('./models/Extintores');
-const Setores = require('./models/Setores');
-const Solicitacoes = require('./models/Solicitacoes');
+mongoose
+    .connect(process.env.MONGO_URI)
+    .then(() => {
+        console.log("Mongo Connected");
+        app.listen(8000, () => (
+            console.log("Server started on port 8000")
+        ));
+    })
+    .catch((err) => console.log(err));
+    
+const extintoresRoutes   = require('./routes/extintorRoutes');
+const HospitaisRoutes    = require('./routes/hospitalRoutes');
+const SetoresRoutes      = require('./routes/setorRoutes');
+const SolicitacoesRoutes = require('./routes/solicitacaoRoutes');
 
-async function connect() {
-    try {
-        await mongoose.connect(process.env.MONGO_URI);
-        console.log("Connected to MongoDB");
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-app.post('/extintores', async (req, res) => {
-    const {
-        idEXTINTOR,
-        TIPO,CAPACIDADE,
-        PROX_MANUTENCAO,
-        ULTIMA_MANUTENCAO,
-    } = req.body;
-
-    try {
-        await Extintores.create(extintores);
-        res.status(201).json(message: 'extintor registrada com sucesso');
-
-    } catch (error) {
-        res.status(500).json({error: error});
-    }
-
-});
-
-app.listen(8000, () => (
-    console.log("Server started on port 8000")
-));
+app.use('/extintores',   extintoresRoutes);
+app.use('/hospitais',    extintoresRoutes);
+app.use('/setores',      extintoresRoutes);
+app.use('/solicitacoes', extintoresRoutes);
 
 app.get('/', (req, res) => {
-    console.log("ENTROU AQUI");
+    console.log("logged to server.");
     res.json({ message:"Hello World"})
 })
