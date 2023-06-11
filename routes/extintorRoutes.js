@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const Extintor = require('../models/Extintor');
 
-router.post('/add', async (req, res) => {
+router.post('/submit', async (req, res) => {
     
     const {
         idEXTINTOR,

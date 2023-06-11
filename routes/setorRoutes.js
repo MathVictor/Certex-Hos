@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const Setor = require('../models/Setor');
 
-router.post('/', async (req, res) => {
+router.post('/submit', async (req, res) => {
     
     const {
         NOME_SETOR,

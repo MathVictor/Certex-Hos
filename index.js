@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 
+app.use(express.static('public'));
+
 app.use(
     express.urlencoded({
         extended: true,
@@ -31,7 +33,14 @@ app.use('/hospital',    hospitalRoutes);
 app.use('/setor',       setorRoutes);
 app.use('/solicitacao', solicitacaoRoutes);
 
-app.get('/', (req, res) => {
-    console.log("logged to server.");
+app.get('/forms', (req, res) => {
+    res.sendFile(__dirname + '/public/template.html');
+})
+
+app.post('/submit', (req, res) => {
+    const id = req.body.user;
+    const nome = req.body.pass;
+
+    console.log("ID: " + id + ", nome: " + nome);
     res.json({ message:"Hello World"})
 })

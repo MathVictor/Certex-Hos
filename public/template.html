@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+    <head>
+        <title>Template</title>
+        <link rel="icon" href="./favicon.ico">
+    </head>
+
+    <body>
+        <h1>Lista de Templates(?) de Forms</h1>
+
+        <h3>Novo Hospital</h3>
+        <form action="/hospital/submit" method="POST">
+            <input type="text"     name="NOME"          placeholder="Nome"/>
+            <input type="number"   name="CNPJ"          placeholder="CNPJ"/>
+            <input type="text"     name="ENDERECO"      placeholder="Nome"/>
+            <input type="tel"      name="CONTATO"
+                pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}" required>
+            <input type="text"     name="LOGIN_DIR"     placeholder="Nome"/>
+            <input type="password" name="SENHA_DIR"     placeholder="Senha"/>
+
+            <button type="submit">Enviar</button>
+        </form>
+
+        <h3>Novo Setor</h3>
+        <form action="/setor/submit" method="POST">
+            <input type="text"  name="NOME_SETOR"   placeholder="Setor"/>
+            <input type="text"  name="RESPONSAVEL"  placeholder="Responsável"/>
+            <input type="number"     name="CPF_RESPONSAVEL" placeholder="CPF"/>
+            <input type="text"       name="LOGIN"           placeholder="Login"/>
+            <input type="password"   name="SENHA"           placeholder="Senha"/>
+
+            <button type="submit">Enviar</button>
+        </form>
+
+        <h3>Registrar Novo Extintor</h3>
+        <form action="/extintor/submit" method="POST">
+            <input type="text"     name="idEXTINTOR"    placeholder="ID" />
+            <input type="text"     name="TIPO"          placeholder="Tipo" />
+            <input type="number"   name="CAPACIDADE"    min="1">
+
+            <input type="date"   name="PROX_MANUTENCAO"  >
+            <input type="date"   name="ULTIMA_MANUTENCAO">
+
+            <button type="submit">Enviar</button>
+        </form>
+
+        <h3>Nova Solicitação</h3>
+        <form action="/solicitacao/submit" method="POST">
+            <input type="text" name="idNOME_SETOR"  placeholder="Setor"/>
+            <input type="text" name="EXTINTOR_TIPO" placeholder="Tipo de Extintor"/>
+            <input type="text" name="idpEXTINTOR" placeholder="ID do Extintor"/>
+            <input type="text" name="DESCRICAO"   placeholder="Descrição"/>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </body>
+</html>

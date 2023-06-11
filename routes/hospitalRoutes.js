@@ -1,13 +1,15 @@
 const router = require('express').Router();
 const Hospital = require('../models/Hospital');
 
-router.post('/', async (req, res) => {
+router.post('/submit', async (req, res) => {
     
     const {
         NOME,
         CNPJ,
         ENDERECO,
         CONTATO,
+        LOGIN_DIR,
+        SENHA_DIR,
     } = req.body;
 
     const hospital = {
@@ -15,9 +17,11 @@ router.post('/', async (req, res) => {
         CNPJ,
         ENDERECO,
         CONTATO,
+        LOGIN_DIR,
+        SENHA_DIR,
     }
 
-    if (!NOME || !CNPJ || !ENDERECO || !CONTATO) {
+    if (!NOME || !CNPJ || !ENDERECO || !CONTATO || !LOGIN_DIR || !SENHA_DIR) {
         res.status(422).json({error: "Parameter Missing"});
         return;
     }
