@@ -11,7 +11,7 @@ app.use(
 );
 app.use(express.json());
 
-require('dotenv').config()
+require('dotenv').config();
 
 mongoose
     .connect(process.env.MONGO_URI)
